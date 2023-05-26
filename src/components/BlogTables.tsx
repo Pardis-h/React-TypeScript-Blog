@@ -1,4 +1,7 @@
-function BlogTables({ blogs }) {
+import { FC } from "react";
+import { PropsBlogs } from "../types/blog.types";
+
+const BlogTables: FC<PropsBlogs> = ({ blogs }) => {
   return (
     <div className="bg-white ">
       <div className="container mx-auto p-6 my-8">

@@ -1,10 +1,17 @@
-function LoginModal() {
+import { Dispatch, FC, SetStateAction } from "react";
+
+interface IProp {
+  setShowLoginModal: Dispatch<SetStateAction<boolean>>;
+}
+const LoginModal: FC<IProp> = ({ setShowLoginModal }) => {
   return (
-    <div className="relative z-10">
-      <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" on></div>
-      <div className="fixed z-10 inset-0 overflow-y-auto">
-        <div className=" min-h-screen flex justify-center items-center">
-          <div className="bg-white rounded-lg shadow-xl p-6 sm:w-full max-w-lg ">
+    <div className=" z-10 fixed inset-0 overflow-y-auto">
+      <div
+        className="fixed inset-0 w-full h-full bg-gray-500 bg-opacity-75 transition-opacity"
+        onClick={() => setShowLoginModal(false)}
+      ></div>
+        <div className="min-h-screen flex justify-center items-center">
+          <div className="bg-white rounded-lg shadow-xl p-6 sm:w-full max-w-lg z-10">
             <h2 className="text-xl font-semibold text-gray-900 mb-4 text-center">
               Login
             </h2>
@@ -29,7 +36,9 @@ function LoginModal() {
               <div>
                 <div className="text-sm leading-6 flex items-center justify-between">
                   <label htmlFor="password">Password</label>
-                  <a href="" className="text-indigo-600">Forget Password?</a>
+                  <a href="" className="text-indigo-600">
+                    Forget Password?
+                  </a>
                 </div>
                 <input
                   type="password"
@@ -42,18 +51,20 @@ function LoginModal() {
               </div>
               <div className="flex items-center justify-between gap-2 pt-3">
                 <button className="bg-indigo-600 text-white w-full rounded-md px-4 py-2 mb-8">
-                    Login
+                  Login
                 </button>
-                <button className="bg-gray-200 text-gray-900 w-full rounded-md px-4 py-2 mb-8">
-                    cancel
+                <button
+                  className="bg-gray-200 text-gray-900 w-full rounded-md px-4 py-2 mb-8"
+                  onClick={() => setShowLoginModal(false)}
+                >
+                  cancel
                 </button>
               </div>
             </form>
           </div>
         </div>
-      </div>
     </div>
   );
-}
+};
 
 export default LoginModal;

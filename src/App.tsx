@@ -1,8 +1,10 @@
 import BlogCards from "./components/BlogCards";
 import Navbar from "./components/Navbar";
 import BlogTables from "./components/BlogTables";
+import { useState } from "react";
+import { IBlog } from "./types/blog.types";
 function App() {
-  const blogs = [
+  const blogData : IBLog[] = [
     {
       id: 1,
       title: "Boost your conversion rate",
@@ -72,6 +74,8 @@ function App() {
       },
     },
   ];
+  const [blogs, setBlogs] = useState<IBlog[]>(blogData)
+
   return (
     <>
       <Navbar/>
