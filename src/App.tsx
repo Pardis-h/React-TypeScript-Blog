@@ -1,87 +1,15 @@
-import BlogCards from "./components/BlogCards";
 import Navbar from "./components/Navbar";
-import BlogTables from "./components/BlogTables";
-import { useState } from "react";
-import { IBlog } from "./types/blog.types";
+import Routers from './pages/Routers'
+import { BrowserRouter } from "react-router-dom";
+
 function App() {
-  const blogData : IBLog[] = [
-    {
-      id: 1,
-      title: "Boost your conversion rate",
-      href: "#",
-      image: "https://dummyimage.com/720x400",
-      description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      date: "Mar 16, 2020",
-      datetime: "2020-03-16",
-      category: { title: "Marketing", href: "#" },
-      author: {
-        name: "Michael Foster",
-        role: "Co-Founder / CTO",
-        href: "#",
-        imageUrl: "https://dummyimage.com/720x400",
-      },
-    },
-    {
-      id: 2,
-      title: "Boost your conversion rate",
-      href: "#",
-      image: "https://dummyimage.com/720x400",
-      description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      date: "Mar 16, 2020",
-      datetime: "2020-03-16",
-      category: { title: "Marketing", href: "#" },
-      author: {
-        name: "Michael Foster",
-        role: "Co-Founder / CTO",
-        href: "#",
-        imageUrl: "https://dummyimage.com/720x400",
-      },
-    },
-    {
-      id: 3,
-      title: "Boost your conversion rate",
-      href: "#",
-      image: "https://dummyimage.com/720x400",
-      description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      date: "Mar 16, 2020",
-      datetime: "2020-03-16",
-      category: { title: "Marketing", href: "#" },
-      author: {
-        name: "Michael Foster",
-        role: "Co-Founder / CTO",
-        href: "#",
-        imageUrl: "https://dummyimage.com/720x400",
-      },
-    },
-    {
-      id: 4,
-      title: "Boost your conversion rate",
-      href: "#",
-      image: "https://dummyimage.com/720x400",
-      description:
-        "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      date: "Mar 16, 2020",
-      datetime: "2020-03-16",
-      category: { title: "Marketing", href: "#" },
-      author: {
-        name: "Michael Foster",
-        role: "Co-Founder / CTO",
-        href: "#",
-        imageUrl: "https://dummyimage.com/720x400",
-      },
-    },
-  ];
-  const [blogs, setBlogs] = useState<IBlog[]>(blogData)
+
 
   return (
-    <>
+    <BrowserRouter>
       <Navbar/>
-      <BlogTables blogs={blogs}/>
-      <BlogCards blogs={blogs}/>
-    </>
+      <Routers/>
+    </BrowserRouter>
   )
 }
 
