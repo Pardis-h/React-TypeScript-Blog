@@ -18,16 +18,19 @@ function Admin() {
       },
     });
     setBlogs(data?.data?.blogs || []);
-    console.log(data?.data?.blogs);
-    if (error) console.log(error);
+    // console.log(data?.data?.blogs);
+    // if (error) console.log(error);
   }, [status]);
 
   return (
     <>
       {token ? (
-          <BlogTables blogs={blogs} />
+        <BlogTables blogs={blogs} />
       ) : (
-        <h1 className="text-center font-bold text-4xl">{error && error}</h1>
+        <div className="text-center py-32">
+          <h1 className=" font-bold text-4xl mb-4">Please Login</h1>
+          <p className="text-red-500 text-xs">{error && `Error :  ${error}`}</p>
+        </div>
       )}
     </>
   );

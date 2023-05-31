@@ -10,7 +10,9 @@ function PostBlog() {
       {token ? (
         <BlogPost />
       ) : (
-        <h1 className="text-center font-bold text-4xl">Unauthorized</h1>
+        <div className="text-center py-32">
+          <h1 className=" font-bold text-4xl mb-4">Please Login</h1>
+        </div>
       )}
     </>
   );

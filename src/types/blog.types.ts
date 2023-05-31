@@ -7,12 +7,12 @@ export interface IBlog {
     href?: string,
     date?: string,
     datetime?: string,
-    category?: { title: string, href: string },
+    category?: { title?: string, href?: string },
     authorDetails?: {
       name?: string,
       role?: string,
       href?: string,
-      imageUrl?: string,
+      avatar?: string,
     },
 }
 export interface IPropsBlogs {

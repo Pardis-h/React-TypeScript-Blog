@@ -3,10 +3,10 @@ import { useState } from "react";
 import Menu from "./NavbarComponents/Menu";
 import Btn from "./NavbarComponents/Btn";
 
-function Navbars() {
+function Navbar() {
   const [isMobileShow, setIsMobileShow] = useState(false);
   return (
-    <header className="bg-white">
+    <header className=" bg-white md:bg-transparent">
       <nav className="container mx-auto flex items-center justify-between p-6 md:p-6">
         <div className="">
           <a href="" className="text-indigo-600 font-bold">
@@ -14,7 +14,7 @@ function Navbars() {
           </a>
         </div>
         <div className="hidden md:block">
-          <Menu />
+          <Menu setIsMobileShow={setIsMobileShow} />
         </div>
         <div className="hidden md:block">
           <Btn />
@@ -35,8 +35,8 @@ function Navbars() {
             />
           </div>
           <div className='divide-y'>
-            <Menu />
-            <Btn />
+            <Menu setIsMobileShow={setIsMobileShow} />
+            <Btn/>
           </div>
         </div>
       ) : (
@@ -46,4 +46,4 @@ function Navbars() {
   );
 }
 
-export default Navbars;
+export default Navbar;

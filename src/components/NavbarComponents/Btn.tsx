@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 function Btn() {
   const [loginModalHandler, setLoginModalHandler] = useState(false);
   const [registerModalHandler, setRegisterModalHandler] = useState(false);
-  const [cookies,setCookie, removeCookie] = useCookies([COOKIES_NAMES.ACCESS_TOKEN, COOKIES_NAMES.USER]);
+  const [cookies,, removeCookie] = useCookies([COOKIES_NAMES.ACCESS_TOKEN, COOKIES_NAMES.USER]);
 
   function LogoutHandler() {
     removeCookie(COOKIES_NAMES.ACCESS_TOKEN);
@@ -33,9 +33,10 @@ function Btn() {
         <Link to="/post-blog" className="bg-indigo-500 text-white rounded px-4 py-2 w-fit">Post Blog</Link>
       </div>
     ) : (
-      <div className="text-base md:text-sm font-semibold flex flex-col md:flex-row md:items-center gap-6 m-1 px-1 py-6 md:m-0 md:p-0">
+      <div className="text-base md:text-sm font-semibold flex flex-row md:flex-row md:items-center gap-6 m-1 px-1 py-6 md:m-0 md:p-0">
         <button 
           onClick={() => setLoginModalHandler(!loginModalHandler)}
+          className="bg-white rounded px-4 py-2 w-fit "
         >
           Login
         </button>

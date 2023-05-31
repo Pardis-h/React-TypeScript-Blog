@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TDeleteApiResponse, TGetApiResponse, TPostApiResponse } from "../types/public.types";
+import { TDeleteApiResponse, TGetApiResponse, TPostApiResponse, TPutApiResponse } from "../types/public.types";
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 const backEndURL: string = "http://localhost:3700";
@@ -26,7 +26,7 @@ export const useApiPost = (): TPostApiResponse => {
       setError(err?.response?.data?.message);
       setStatus(err?.response?.data?.status || 500);
       setStatusText(err?.response?.data?.statusText || 'ErroR');
-      console.log(err);
+      // console.log(err);
       
     }
     setLoading(false);
@@ -38,6 +38,43 @@ export const useApiPost = (): TPostApiResponse => {
     error,
     loading,
     postAPIData,
+  };
+};
+
+export const useApiPut = (): TPutApiResponse => {
+  const [status, setStatus] = useState<number>(0);
+  const [statusText, setStatusText] = useState<string>("");
+  const [data, setData] = useState<any>();
+  const [error, setError] = useState<any>();
+  const [loading, setLoading] = useState<boolean>(false);
+  const putAPIData = async (
+    path: string,
+    body: object = {},
+    option: AxiosRequestConfig = {}
+  ): Promise<void> => {
+    setLoading(true);
+    try {
+      const axiosRes = await axios.put(`${backEndURL}${path}`, body, option);
+      setData(axiosRes?.data);
+      setStatus(axiosRes?.status);
+      setStatusText(axiosRes?.statusText);
+      setError('');
+    } catch (err: AxiosError | any) {
+      setError(err?.response?.data?.message);
+      setStatus(err?.response?.data?.status || 500);
+      setStatusText(err?.response?.data?.statusText || 'ErroR');
+      // console.log(err);
+      
+    }
+    setLoading(false);
+  };
+  return {
+    status,
+    statusText,
+    data,
+    error,
+    loading,
+    putAPIData,
   };
 };
 

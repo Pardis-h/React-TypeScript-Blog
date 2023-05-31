@@ -21,7 +21,7 @@ const LoginModal: FC<IProp> = ({ setShowLoginModal }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { data, postAPIData, error } = useApiPost();
-  const [cookies, setCookie, removeCookie] = useCookies([COOKIES_NAMES.ACCESS_TOKEN,COOKIES_NAMES.USER]);
+  const [, setCookie, ] = useCookies([COOKIES_NAMES.ACCESS_TOKEN,COOKIES_NAMES.USER]);
 
   const resetFrom = (): void => {
     setUsername("");
@@ -35,13 +35,14 @@ const LoginModal: FC<IProp> = ({ setShowLoginModal }) => {
 
   useEffect(() => {
     if (data) {
-      console.log(data.user);
+      // console.log(data.user);
       const { data : {user}} = data;
       setCookie(COOKIES_NAMES.USER, user);
       setCookie(COOKIES_NAMES.ACCESS_TOKEN, user.accessToken);
       toastifySubmit("Success", "You Loged In");
       resetFrom();
       setShowLoginModal(false);
+      window.location.reload()
     }
   }, [data]);
 

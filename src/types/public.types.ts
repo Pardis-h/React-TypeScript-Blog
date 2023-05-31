@@ -10,6 +10,10 @@ export type TPostApiResponse = TApiResponse & {
     postAPIData : Function
 }
 
+export type TPutApiResponse = TApiResponse & {
+    putAPIData : Function
+}
+
 export type TGetApiResponse = TApiResponse & {
     getAPIData : Function
 }

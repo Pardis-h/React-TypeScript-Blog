@@ -17,7 +17,7 @@ export function GetBLogs(): IBlog[] {
             name: "Michael Foster",
             role: "Co-Founder / CTO",
             href: "#",
-            imageUrl: "https://dummyimage.com/720x400",
+            avatar: "https://dummyimage.com/720x400",
           },
         },
         {
@@ -35,7 +35,7 @@ export function GetBLogs(): IBlog[] {
             name: "Michael Foster",
             role: "Co-Founder / CTO",
             href: "#",
-            imageUrl: "https://dummyimage.com/720x400",
+            avatar: "https://dummyimage.com/720x400",
           },
         },
         {
@@ -53,7 +53,7 @@ export function GetBLogs(): IBlog[] {
             name: "Michael Foster",
             role: "Co-Founder / CTO",
             href: "#",
-            imageUrl: "https://dummyimage.com/720x400",
+            avatar: "https://dummyimage.com/720x400",
           },
         },
       ];
